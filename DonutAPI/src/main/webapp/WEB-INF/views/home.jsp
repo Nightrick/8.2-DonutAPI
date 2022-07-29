@@ -9,6 +9,16 @@
 <title>DAVID'S DONUTS</title>
 </head>
 <body>
-Figma
+	<table>
+		<tr>
+			<th>Name</th>
+		</tr>
+		
+		<c:forEach var="donut" items="${donuts}">
+		<tr>
+			<td><a href="/donut-details?id=${donut.id}"> ${donut.name} </a></td>
+		</tr>
+		</c:forEach>
+	</table>
 </body>
 </html>

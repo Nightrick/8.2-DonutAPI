@@ -1,14 +1,27 @@
 package co.grandcircus.DonutAPI;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DonutController {
 	
+	@Autowired 
+	DonutService service;
+	
 	@RequestMapping("/")
-	public String homePage() {
+	public String homePage(Model model) {
+		model.addAttribute("donuts", service.getAllDonuts());
 		return "home";
+	}
+	
+	@RequestMapping("/donut-details")
+	public String donutDetails(Model model, @RequestParam Integer id) {
+		model.addAttribute("donut", service.getDonutById(id));
+		return "donut-details";
 	}
 
 }

@@ -1,0 +1,14 @@
+package co.grandcircus.DonutAPI;
+
+import java.util.List;
+
+public class Donut {
+	
+	private Integer id;
+	private String ref;
+	private String name;
+	private Integer calories;
+	private List<String> extras;
+	
+
+}
